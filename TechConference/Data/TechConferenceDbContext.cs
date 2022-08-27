@@ -9,6 +9,6 @@ namespace TechConference.Data
         {
             this.Database.EnsureCreated();
         }
-        public DbSet<Session> Products { get; set; }
+        public DbSet<Session> Sessions { get; set; }
     }
 }
