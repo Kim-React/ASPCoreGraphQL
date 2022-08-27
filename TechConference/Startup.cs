@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TechConference.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace TechConference
 {
@@ -26,10 +28,12 @@ namespace TechConference
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<TechConferenceDbContext>(options =>
+            options.UseSqlServer(Configuration["ConnectionStrings:TechConference"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TechConferenceDbContext dbContext)
         {
             if (env.IsDevelopment())
             {
@@ -46,6 +50,8 @@ namespace TechConference
             {
                 endpoints.MapControllers();
             });
+
+            dbContext.Seed();
         }
     }
 }

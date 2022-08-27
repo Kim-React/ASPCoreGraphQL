@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TechConference.Data.Entities
+namespace TechConference.Api.Data.Entities
 {
     public class Session
     {
