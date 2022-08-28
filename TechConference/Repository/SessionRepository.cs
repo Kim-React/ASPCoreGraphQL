@@ -20,6 +20,11 @@ namespace TechConference.Repository
             return _dbContext.Sessions;
         }
 
+        public IEnumerable<Session> GetSessionsByDay(string day)
+        {
+            return _dbContext.Sessions.Where(i => i.Day == day);
+        }
+
         public Session AddSession(Session session)
         {
             _dbContext.Sessions.Add(session);
