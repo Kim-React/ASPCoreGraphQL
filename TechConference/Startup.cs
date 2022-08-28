@@ -49,45 +49,19 @@ namespace TechConference
                 AddSystemTextJson()
                 .AddGraphTypes(ServiceLifetime.Scoped);
 
-
-            //services.AddGraphQL(o => { o.NameConverter })
-            //    .AddSystemTextJson()
-            //    .AddGraphTypes(ServiceLifetime.Scoped);
-            //services.AddGraphQL(b => b
-            //   //.AddSchema<TechConferenceSchema>()
-            //   .AddSystemTextJson()
-            //   .AddMemoryCache()
-            //   .AddApolloTracing(options => options.RequestServices!.GetRequiredService<IOptions<GraphQLSettings>>().Value.EnableMetrics));
-
-            //services.AddGraphQL(b => b
-
-            //);
-            //    //.AddGraphTypes(ServiceLifetime.Scoped);
-            //    //.AddSystemTextJson();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, TechConferenceDbContext dbContext)
         {
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
+
+            app.UseCors(builder =>
+            builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseGraphQL<TechConferenceSchema>();
 
             app.UseGraphQLPlayground();
-
-            //app.UseHttpsRedirection();
-
-            //app.UseRouting();
-
-            //app.UseAuthorization();
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllers();
-            //});
 
             dbContext.Seed();
         }

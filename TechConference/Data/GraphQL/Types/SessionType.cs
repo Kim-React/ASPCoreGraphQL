@@ -11,6 +11,9 @@ namespace TechConference.Data.GraphQL
             Field(t => t.Id);
             Field(t => t.Title);
             Field(t => t.Description);
+            Field(t => t.Day);
+            Field(t => t.Format);
+
         }
     }
 }

@@ -20,5 +20,12 @@ namespace TechConference.Repository
             return _dbContext.Sessions;
         }
 
+        public Session AddSession(Session session)
+        {
+            _dbContext.Sessions.Add(session);
+            _dbContext.SaveChanges();
+            return session;
+        }
+
     }
 }

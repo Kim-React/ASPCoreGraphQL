@@ -11,6 +11,7 @@ namespace TechConference.Data.GraphQL
         public TechConferenceSchema(IServiceProvider resolver): base(resolver)
         {
             Query = (IObjectGraphType)resolver.GetService(typeof(TechConferenceQuery));
+            Mutation = (IObjectGraphType)resolver.GetService(typeof(TechConferenceMutation));
         }
     }   
 }
