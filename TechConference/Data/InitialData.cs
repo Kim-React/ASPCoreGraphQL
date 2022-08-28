@@ -9,9 +9,9 @@ namespace TechConference.Data
         {
             // add seeded datatbase on project run or with entity frame code run
 
-            if (!dbContext.Products.Any())
+            if (!dbContext.Sessions.Any())
             {
-                dbContext.Products.Add(new Session
+                dbContext.Sessions.Add(new Session
                 {
                     Title = "Html",
                     Description = "front web development controls.",
@@ -21,7 +21,7 @@ namespace TechConference.Data
                     Level = "Basic",
                 });
 
-                dbContext.Products.Add(new Session
+                dbContext.Sessions.Add(new Session
                 {
                     Title = "CSS",
                     Description = "front web development styles.",
@@ -31,7 +31,7 @@ namespace TechConference.Data
                     Level = "Basic",
                 });
 
-                dbContext.Products.Add(new Session
+                dbContext.Sessions.Add(new Session
                 {
                     Title = "Javascript",
                     Description = "front web development programming.",
@@ -41,7 +41,7 @@ namespace TechConference.Data
                     Level = "Basic",
                 });
 
-                dbContext.Products.Add(new Session
+                dbContext.Sessions.Add(new Session
                 {
                     Title = "ReactJS",
                     Description = "front web development library.",
@@ -51,7 +51,7 @@ namespace TechConference.Data
                     Level = "Basic",
                 });
 
-                dbContext.Products.Add(new Session
+                dbContext.Sessions.Add(new Session
                 {
                     Title = "Html",
                     Description = "front web development basic.",
@@ -61,7 +61,7 @@ namespace TechConference.Data
                     Level = "Basic",
                 });
 
-                dbContext.Products.Add(new Session
+                dbContext.Sessions.Add(new Session
                 {
                     Title = "c#",
                     Description = "back end programming language",
