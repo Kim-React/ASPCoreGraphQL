@@ -12,7 +12,7 @@ namespace TechConference.Data.GraphQL
 {
     public class TechConferenceMutation : ObjectGraphType
     {
-        public TechConferenceMutation(SessionRepository sessionRepository)
+        public TechConferenceMutation(SessionRepository sessionRepository, UserRepository userRepository)
         {
             Field<SessionType>(
             "createSession",
@@ -21,8 +21,17 @@ namespace TechConference.Data.GraphQL
             {
                 var session = context.GetArgument<Session>("session");
                 return sessionRepository.AddSession(session);
-            }
-        );
+            });
+
+            Field<BooleanGraphType>(
+            "login",
+            arguments: new QueryArguments(new QueryArgument<NonNullGraphType<UserInputType>> { Name = "user" }),
+            resolve: context =>
+            {
+                var user = context.GetArgument<User>("user");
+                return userRepository.login(user.Email,user.Password);
+            });
+      
         }
     }
 }

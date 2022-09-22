@@ -41,6 +41,7 @@ namespace TechConference
             options.UseSqlServer(Configuration["ConnectionStrings:TechConference"]));
 
             services.AddScoped<SessionRepository>();
+            services.AddScoped<UserRepository>();
 
             services.AddScoped<IServiceProvider>(s => new FuncServiceProvider(s.GetRequiredService));
             services.AddScoped<TechConferenceSchema>();

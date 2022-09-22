@@ -10,5 +10,7 @@ namespace TechConference.Data
             this.Database.EnsureCreated();
         }
         public DbSet<Session> Sessions { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }

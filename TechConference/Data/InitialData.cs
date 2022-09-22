@@ -73,6 +73,30 @@ namespace TechConference.Data
 
                 dbContext.SaveChanges();
             }
-        }
+
+            if (!dbContext.Users.Any())
+            {
+                dbContext.Users.Add(new User
+                {
+                    Email = "john@gmail.com",
+                    Password = "admin@123"
+
+                }); ;
+
+                dbContext.Users.Add(new User
+                {
+                    Email = "kevin@gmail.com",
+                    Password = "admin@123"
+                });
+
+                dbContext.Users.Add(new User
+                {
+                    Email = "david@gmail.com",
+                    Password = "admin@123"
+                });
+
+                dbContext.SaveChanges();
+            }
+            }
     }
 }
